@@ -91,7 +91,7 @@ body {
 					-moz-transform-style: preserve-3d;
 					-moz-backface-visibility: hidden;
 		
-					@include trans(all .4s ease-in-out);			
+					@include trans(all 0.6s ease-in-out);			
 				}
 				
 				.front {
@@ -168,13 +168,6 @@ body {
 					-webkit-transform: rotateY(0deg);
 					-moz-transform: rotateY(0deg);
 					z-index: 10;
-					
-					.guess {
-						display: block;
-					}
-					.details {
-						display: none;
-					}
 				}
 			}
 			
@@ -188,20 +181,17 @@ body {
 					-webkit-transform: rotateY(180deg);
 					-moz-transform: rotateY(180deg);
 					z-index: 8;
-					
-					.guess {
-						display: none;
-					}
-					.details {
-						display: block;
-					}
 				}
 			}
 			
 			.hidden {
 				opacity: 0.5;
+				
 				-webkit-transform-origin: 50% 100%;
 				-webkit-transform: perspective( 500px ) rotateX( 40deg ) scale(0.9,0.9);
+
+				-moz-transform-origin: 50% 100%;
+				-moz-transform: perspective( 500px ) rotateX( 40deg ) scale(0.9,0.9);				
 			}
 		}
 		
