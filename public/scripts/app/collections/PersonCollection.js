@@ -20,28 +20,39 @@ function($, _, Backbone,
 		},
 		
 		update: function( prop, value ) {
-			this.updateBoard( prop, value );
-			this.currentFilters.push({prop: value});
-		},
-		
-		updateBoard: function( prop, value ) {
+			
+			if ( !this.currentFilters[prop] ) {
+				this.currentFilters[prop] = {};
+			}
 			
 			var updated = this.clone();
 			
+			if ( this.selectedModel.get(prop) === value ) {
+				this.currentFilters[prop][value] = true;
+			} else {
+				this.currentFilters[prop][value] = false;
+			}
+			
 			updated = _.map( updated.models, $.proxy( function(  model ) {
-				// if the selected person has the attribute
-				// then then go in and hide anyone else who doesnt have the attribute
-				if ( this.selectedModel.get(prop) === value && model.get( prop ) !== value ) {
-					model.set({visible: false},{silent: true});
-				} 
-				
-				// if the selected person does not have the attribute
-				// then go throgh and hide ebryone that does  have that attribute
-				if ( this.selectedModel.get(prop) !== value && model.get( prop ) === value ) {
-					model.set({visible: false},{silent: true});
+				// Only check models that are visible and are not selected
+				if ( this.selectedModel.get('id') !== model.get('id') && model.get('visible') === true ) {
+					// if selected has prop but model does not, then hide model OR
+					// if selected does not have prop and model does, then hide model
+					if ((this.selectedModel.get(prop) === value && model.get( prop ) !== value) ||
+						(this.selectedModel.get(prop) !== value && model.get( prop ) === value )) {
+						model.set({visible: false},{silent: true});
+					} 
+					
+					// if selected has prop and so does model, then show model OR
+					// if selected does not have prop and model does, then hide model
+					if ((this.selectedModel.get(prop) === value && model.get( prop ) === value) ||
+						(this.selectedModel.get(prop) !== value && model.get( prop ) !== value)) {
+						model.set({visible: true},{silent: true});
+					} 
 				}
 				
 				return model;
+				
 			}, this ));
 			
 			this.incrementCount();
@@ -50,16 +61,12 @@ function($, _, Backbone,
 		},
 		
 		postReset: function() {
-			this.selectedModel = this._getSelectedModel();
+			this.selectedModel = this.where({selected: true})[0];
 		},
 		
 		incrementCount: function() {
 			this.count++;
-		},
-		
-		_getSelectedModel: function() {
-			return this.where({selected: true})[0];
-	    }
+		}
 		
 	});
 

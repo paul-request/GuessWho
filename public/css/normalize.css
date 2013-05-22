@@ -519,3 +519,12 @@ nav ul, nav ol {
 	margin-right: 0;
 	padding-right: 0;
 }
+
+/* font-face */
+@font-face {
+  font-family: "GeneralFoundicons";
+  src: url("/public/fonts/general_foundicons.eot");
+  src: url("/public/fonts/general_foundicons.eot?#iefix") format("embedded-opentype"), url("/public/fonts/general_foundicons.woff") format("woff"), url("/public/fonts/general_foundicons.ttf") format("truetype"), url("/public/fonts/general_foundicons.svg#GeneralFoundicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

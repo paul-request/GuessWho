@@ -35,7 +35,8 @@ function($, _, Backbone,
 				this.filterViews.push( new FilterView({
 			    	name: val,
 			    	key: key,
-			    	values: _.uniq( this.collection.pluck( key ) )
+			    	values: _.uniq( this.collection.pluck( key ) ),
+			    	selected: this.collection.currentFilters[key]
 			    }) )
 			}, this ));
 		},
@@ -53,7 +54,10 @@ function($, _, Backbone,
 		},
 		
 		update: function( evt ) {
-			var $target = $(evt.target);
+			var 
+			$evtTarget = $(evt.target),
+			$target = ( evt.target.nodeName !== 'A' ) ?
+				$evtTarget.closest('a') : $evtTarget;			
 			
 			this.collection.update( $target.data('key'), $target.data('value') );
 			

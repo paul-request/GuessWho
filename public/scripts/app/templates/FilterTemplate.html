@@ -2,7 +2,11 @@
 	<h4><%= name %></h4>
 </header>
 <% _.each(values, function( value ) { %>
+<% var filterClass = ""; %>
 <% if ( typeof value !== 'undefined' && value != '' ) { %>
-<a href="#" class="filter" data-key="<%= key %>" data-value="<%= value %>"><%= _.out(value) %></a>
+<% if ( typeof selected !== 'undefined' && typeof selected[value] !== 'undefined' ) { %>
+<% filterClass = ( selected[value] === true ) ? 'isTrue' : 'isFalse'; %>
+<% } %>
+<a href="#" class="filter <%= filterClass %>" data-key="<%= key %>" data-value="<%= value %>"><i></i><%= _.out(value) %></a>
 <% } %>
 <% }) %>

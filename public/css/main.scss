@@ -80,8 +80,7 @@ body {
 					top: 0;
 					left: 0;
 					position: absolute;
-					@include box_shadow();
-					@include corners(5px);
+					@include corners(8px);
 					
 					-webkit-transform: rotateX(0deg) rotateY(0deg);
 					-webkit-transform-style: preserve-3d;
@@ -130,7 +129,7 @@ body {
 					height: 130px;
 					width: 95px;
 					z-index: 8;
-					background: #fbf4C9;
+					background: $yellow;
 					font-size: 0.625em;
 					position: absolute;
 					
@@ -215,8 +214,8 @@ body {
 				
 				.filter {
 					display: inline-block;
-					padding: 0 4px;
-					margin: 0 5px 0 0;
+					padding: 0 6px;
+					margin: 0 5px 5px 0;
 					@include corners(3px);
 					background: #eee;
 					cursor: pointer;
@@ -230,6 +229,58 @@ body {
 					&:hover {
 						text-decoration: none;
 						border-color: #777;
+					}
+					
+					i {
+						display: inline;
+					  	width: auto;
+					  	height: auto;
+					 	line-height: inherit;
+					  	vertical-align: middle;
+					  	background-image: none;
+					  	background-position: 0 0;
+					  	background-repeat: repeat;
+					  	margin-right: 3px;
+					  	
+					  	&:before {
+					  		font-family: "GeneralFoundicons";
+							font-weight: normal;
+							font-style: normal;
+							text-decoration: inherit;
+							content: "\f003";
+					  	}
+					}
+				}
+				
+				.isTrue {
+					border-color: #bfe79e;
+					color: #71ca28;
+					background: #e3f5d5;
+					
+					&:hover {
+						border-color: #71ca28;
+					}
+					
+					i {
+						&:before {
+							content: "\f005";
+						}
+					}
+				}
+				
+				.isFalse {
+					border-color: #ecb5AA;
+					color: #d45b43;
+					background: #f7dfda;
+					
+					&:hover {
+						border-color: #d45b43;
+					}
+					
+					i {
+						&:before {
+							content: "\f006";
+						}
 					}
 				}
 			}

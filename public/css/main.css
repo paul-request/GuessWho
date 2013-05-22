@@ -35,12 +35,9 @@ body {
           top: 0;
           left: 0;
           position: absolute;
-          -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-          -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-          -moz-border-radius: 5px;
-          -webkit-border-radius: 5px;
-          border-radius: 5px;
+          -moz-border-radius: 8px;
+          -webkit-border-radius: 8px;
+          border-radius: 8px;
           -webkit-transform: rotateX(0deg) rotateY(0deg);
           -webkit-transform-style: preserve-3d;
           -webkit-backface-visibility: hidden;
@@ -81,7 +78,7 @@ body {
           height: 130px;
           width: 95px;
           z-index: 8;
-          background: #fbf4C9;
+          background: #eed429;
           font-size: 0.625em;
           position: absolute;
           -webkit-transform: rotateY(-180deg);
@@ -136,8 +133,8 @@ body {
           margin: 0; }
         body #container #sideBar .filterGroup .filter {
           display: inline-block;
-          padding: 0 4px;
-          margin: 0 5px 0 0;
+          padding: 0 6px;
+          margin: 0 5px 5px 0;
           -moz-border-radius: 3px;
           -webkit-border-radius: 3px;
           border-radius: 3px;
@@ -156,3 +153,35 @@ body {
           body #container #sideBar .filterGroup .filter:hover {
             text-decoration: none;
             border-color: #777; }
+          body #container #sideBar .filterGroup .filter i {
+            display: inline;
+            width: auto;
+            height: auto;
+            line-height: inherit;
+            vertical-align: middle;
+            background-image: none;
+            background-position: 0 0;
+            background-repeat: repeat;
+            margin-right: 3px; }
+            body #container #sideBar .filterGroup .filter i:before {
+              font-family: "GeneralFoundicons";
+              font-weight: normal;
+              font-style: normal;
+              text-decoration: inherit;
+              content: "\f003"; }
+        body #container #sideBar .filterGroup .isTrue {
+          border-color: #bfe79e;
+          color: #71ca28;
+          background: #e3f5d5; }
+          body #container #sideBar .filterGroup .isTrue:hover {
+            border-color: #71ca28; }
+          body #container #sideBar .filterGroup .isTrue i:before {
+            content: "\f005"; }
+        body #container #sideBar .filterGroup .isFalse {
+          border-color: #ecb5AA;
+          color: #d45b43;
+          background: #f7dfda; }
+          body #container #sideBar .filterGroup .isFalse:hover {
+            border-color: #d45b43; }
+          body #container #sideBar .filterGroup .isFalse i:before {
+            content: "\f006"; }
