@@ -1,0 +1,8 @@
+<header>
+	<h4><%= name %></h4>
+</header>
+<% _.each(values, function( value ) { %>
+<% if ( typeof value !== 'undefined' && value != '' ) { %>
+<a href="#" class="filter" data-key="<%= key %>" data-value="<%= value %>"><%= _.out(value) %></a>
+<% } %>
+<% }) %>

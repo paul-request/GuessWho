@@ -1,0 +1,248 @@
+$red: #f82a15;
+$yellow: #eed429;
+
+@mixin box_shadow($shadow: 0 0 5px rgba(0,0,0,0.2)) {
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+@mixin vertical_gradient($startColour: #ffffff, $endColour: #ffffff) {
+	background-color: $endColour;
+	background-image: linear-gradient(bottom, $endColour 0%, $startColour 100%);
+	background-image: -o-linear-gradient(bottom, $endColour 0%, $startColour 100%);
+	background-image: -moz-linear-gradient(bottom, $endColour 0%, $startColour 100%);
+	background-image: -webkit-linear-gradient(bottom, $endColour 0%, $startColour 100%);
+	background-image: -ms-linear-gradient(bottom, $endColour 0%, $startColour 100%);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, $endColour), color-stop(1, $startColour));
+}
+@mixin horizontal_gradient($startColour: #ffffff, $endColour: #ffffff) {
+	background-color: $startColour;
+	background-image: linear-gradient(left , $startColour 0%, $endColour 100%);
+	background-image: -o-linear-gradient(left , $startColour 0%, $endColour 100%);
+	background-image: -moz-linear-gradient(left , $startColour 0%, $endColour 100%);
+	background-image: -webkit-linear-gradient(left , $startColour 0%, $endColour 100%);
+	background-image: -ms-linear-gradient(left , $startColour 0%, $endColour 100%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, $startColour), color-stop(1, $endColour));
+}
+@mixin trans($trans: border-color 0.3s linear) {
+	-o-transition: $trans;
+	-ms-transition: $trans;
+	-moz-transition: $trans;
+	-webkit-transition: $trans;
+	transition: $trans;
+}
+@mixin corners($corners: 5px) {
+	-moz-border-radius: $corners;
+	-webkit-border-radius: $corners;
+	border-radius: $corners;
+}
+
+/* ==========================================================================
+   THIS USES SASS TO GENERATE THE CSS FILE - DO NOT EDIT THE CSS FILE DIRECTLY
+   AS YOUR CHANGES WILL GET LOST WHEN THE PROJECT GETS BUILT.
+   * Follow the instructions here (http://sass-lang.com/download.html) to 
+   * install ruby and sass on Windows and run the command to watch this file 
+   * and automatically generate the CSS file (sass --watch theme.scss:theme.css).
+   
+   ========================================================================== */
+body {
+	font-size: 1em;
+	line-height: 1.25em;
+	color: #333;
+	
+	h1 {
+		font-size: 1.5em;
+		margin: 0 0 0.75em;
+		padding: 0 0 0.75em;
+		border-bottom: 1px solid #777;
+	}
+
+	#container { 
+		width: 800px;
+		margin: 20px auto;
+		overflow: hidden; 
+		
+		#gameBoard {
+			width: 530px;
+			float: left;
+			
+			.card {
+				width: 115px;
+				height: 150px;
+				overflow: hidden;
+				position: relative;
+				float: left;
+				margin: 5px;
+				cursor: pointer;
+				
+				.front, .back {
+					margin: 0;
+					top: 0;
+					left: 0;
+					position: absolute;
+					@include box_shadow();
+					@include corners(5px);
+					
+					-webkit-transform: rotateX(0deg) rotateY(0deg);
+					-webkit-transform-style: preserve-3d;
+					-webkit-backface-visibility: hidden;
+		
+					-moz-transform: rotateX(0deg) rotateY(0deg);
+					-moz-transform-style: preserve-3d;
+					-moz-backface-visibility: hidden;
+		
+					@include trans(all .4s ease-in-out);			
+				}
+				
+				.front {
+					height: 35px;
+					width: 75px;
+					padding: 85px 10px 10px;
+					z-index: 10;
+					background: $red;
+					border: 10px solid $yellow;
+					text-align: center;
+					
+					-webkit-transform: rotateY(0deg);
+					-moz-transform: rotateY(0deg);
+					
+					h3 {
+						color: #fff;
+						font-family: 'Comic Sans MS';
+						font-size: 1em;
+						font-weight: bold;
+						margin: 0;
+						padding: 10px 0 0;
+					}
+					
+					img {
+						width: 75px;
+						height: 75px;
+						display: block;
+						position: absolute;
+						top: 10px;
+					}
+				}
+				
+				.back {
+					margin: 0;
+					padding: 10px;
+					height: 130px;
+					width: 95px;
+					z-index: 8;
+					background: #fbf4C9;
+					font-size: 0.625em;
+					position: absolute;
+					
+					-webkit-transform: rotateY(-180deg);
+					-moz-transform: rotateY(-180deg);
+					
+					.guess, .details {
+						width: 95px;
+						height: 130px;
+						position: relative;
+						top: 0;
+						left: 0;
+					}
+					
+					.outcome {
+						font-size: 1.25em;
+						text-align: center;
+						position: relative;
+						top: 40%;
+						
+						em {
+							font-weight: bold;
+							font-style: none;
+						}
+					}
+				}
+			}
+			.toggle {
+				.front {
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					z-index: 8;
+				}
+				.back {
+					-webkit-transform: rotateY(0deg);
+					-moz-transform: rotateY(0deg);
+					z-index: 10;
+					
+					.guess {
+						display: block;
+					}
+					.details {
+						display: none;
+					}
+				}
+			}
+			
+			.hover {
+				.front {
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					z-index: 8;
+				}
+				.back {
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+					z-index: 8;
+					
+					.guess {
+						display: none;
+					}
+					.details {
+						display: block;
+					}
+				}
+			}
+			
+			.hidden {
+				opacity: 0.5;
+				-webkit-transform-origin: 50% 100%;
+				-webkit-transform: perspective( 500px ) rotateX( 40deg ) scale(0.9,0.9);
+			}
+		}
+		
+		#sideBar {
+			width: 250px;
+			float: right;
+			
+			p {
+				font-size: 0.875em;
+			}
+			
+			.filterGroup {
+				border-top: 1px solid #333;
+				padding: 10px 0;
+				margin: 10px 0;
+				
+				h4 {
+					padding: 0 0 5px;
+					margin: 0;
+				}
+				
+				.filter {
+					display: inline-block;
+					padding: 0 4px;
+					margin: 0 5px 0 0;
+					@include corners(3px);
+					background: #eee;
+					cursor: pointer;
+					font-size: 0.625em;
+					text-transform: uppercase;
+					border: 1px solid #ddd;
+					text-decoration: none;
+					color: #333;
+					@include trans(all .2s ease-in);
+					
+					&:hover {
+						text-decoration: none;
+						border-color: #777;
+					}
+				}
+			}
+		}
+	}
+}

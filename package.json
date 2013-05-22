@@ -1,0 +1,7 @@
+{
+  "name": "guess-who",
+  "version": "1.0.0",
+  "devDependencies": {
+   	"express": "~3.1.1"
+  }
+}

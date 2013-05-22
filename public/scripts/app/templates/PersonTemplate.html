@@ -1,0 +1,25 @@
+<% var visClass = ( visible === true ) ? 'visible' : 'hidden'; %>
+<div class="card <%= visClass %>">
+	<div class="front">
+		<h3><%= _.out(name) %></h3>
+		<div class="cardImage">
+			<img src="<%= image %>" alt="Picture of <%= name %>">
+		</div>
+	</div>
+	<div class="back">
+		<div class="guess">
+			<p class="outcome"><em>
+			<% if ( selected !== false ) { %>
+			CORRECT!
+			<% } else { %>
+			WRONG!
+			<% } %>
+			</em></p>
+		</div>
+		<div class="details">
+			<ul>
+				<li>Deets go here</li>
+			</ul>
+		</div>
+	</div>
+</div>
