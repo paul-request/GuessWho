@@ -40,19 +40,23 @@ function($, _, Backbone,
 			updated = _.map( updated.models, $.proxy( function(  model ) {
 				// Only check models that are visible and are not selected
 				if ( this.selectedModel.get('id') !== model.get('id') && model.get('visible') === true ) {
+					// TODO: test that this works as opposed to the 2 if statements
 					// if selected has prop but model does not, then hide model OR
 					// if selected does not have prop and model does, then hide model
 					if ((this.selectedModel.get(prop) === value && model.get( prop ) !== value) ||
 						(this.selectedModel.get(prop) !== value && model.get( prop ) === value )) {
 						model.set({visible: false},{silent: true});
-					} 
-					
-					// if selected has prop and so does model, then show model OR
-					// if selected does not have prop and model does, then hide model
+					} else {
+						model.set({visible: true},{silent: true});
+					}
+					/*
+					if selected has prop and so does model, then show model OR
+					if selected does not have prop and model does, then hide model
 					if ((this.selectedModel.get(prop) === value && model.get( prop ) === value) ||
 						(this.selectedModel.get(prop) !== value && model.get( prop ) !== value)) {
 						model.set({visible: true},{silent: true});
-					} 
+					}
+					*/
 				}
 				
 				return model;
