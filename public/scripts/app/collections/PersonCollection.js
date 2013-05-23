@@ -21,12 +21,16 @@ function($, _, Backbone,
 		
 		update: function( prop, value ) {
 			
+			// create filter array if it doesnt already exist
+			// TODO: use extend instead
 			if ( !this.currentFilters[prop] ) {
 				this.currentFilters[prop] = {};
 			}
 			
+			// Make a copy of the collection to manipulate
 			var updated = this.clone();
 			
+			// Add the current filter to the list of applied filters
 			if ( this.selectedModel.get(prop) === value ) {
 				this.currentFilters[prop][value] = true;
 			} else {
@@ -55,8 +59,10 @@ function($, _, Backbone,
 				
 			}, this ));
 			
+			// increment the count
 			this.incrementCount();
 			
+			// reset the collection with updated collection
 			this.reset( updated );
 		},
 		

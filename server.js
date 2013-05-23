@@ -18,8 +18,8 @@ app.configure(function () {
 });
 
 //Start server
-app.listen(4711, function () {
-    console.log("Express server listening in %s mode", app.settings.env);
+app.listen(8081, function () {
+    console.log("Express server listening on port 8081");
 });
 
 app.get('/people', function(req, res) {
