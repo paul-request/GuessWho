@@ -68,10 +68,19 @@ function($, _, Backbone,
 		
 		postReset: function() {
 			this.selectedModel = this.where({selected: true})[0];
+			this.currentFilters = [];
 		},
 		
 		incrementCount: function() {
 			this.count++;
+		},
+		
+		getCount: function() {
+			return this.count;
+		},
+		
+		getSelectedModel: function() {
+			return this.selectedModel;
 		}
 		
 	});

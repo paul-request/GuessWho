@@ -20,7 +20,7 @@ function($, _, Backbone,
 			'click .filterGroup': 'update'
 		},
 		
-		initialize: function() {
+		preRender: function() {
 			
 			var filters = {
 				'eyes': 'Eye colour',
@@ -39,6 +39,8 @@ function($, _, Backbone,
 			    	selected: this.collection.currentFilters[key]
 			    }) )
 			}, this ));
+			
+			this.render();
 		},
 
 		render: function() {

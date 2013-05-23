@@ -29,8 +29,6 @@ define([
 			var $card = $(evt.currentTarget);
 			$card.toggleClass('toggle');
 			
-			this.model.collection.incrementCount();
-			
 			if ( this.model.get('selected') === true ) {
 				Vents.trigger('guess:correct');
 			} else {

@@ -14,15 +14,15 @@ function(
 	Vents = _.extend({}, Backbone.Events);
 	
 	Vents.bind("guess:correct", function() {
-		console.log('CORRECT');
+		router.guess( true );
 	});
 	
 	Vents.bind("guess:incorrect", function() {
-		console.log('INCORRECT');
+		router.guess( false );
 	});
 	
-	Vents.bind("game:start", function() {
-		router.navigate('/');
+	Vents.bind("game:reset", function() {
+		router.navigate('#/guess-who', true);
 	});
 	
 	Backbone.history.start();
