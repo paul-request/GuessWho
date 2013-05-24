@@ -118,6 +118,11 @@ body {
         z-index: 8; }
       body #container #gameBoard .hidden {
         opacity: 0.5;
+        -o-transition: all 0.6s ease-out;
+        -ms-transition: all 0.6s ease-out;
+        -moz-transition: all 0.6s ease-out;
+        -webkit-transition: all 0.6s ease-out;
+        transition: all 0.6s ease-out;
         -webkit-transform-origin: 50% 100%;
         -webkit-transform: perspective(500px) rotateX(40deg) scale(0.9, 0.9);
         -moz-transform-origin: 50% 100%;

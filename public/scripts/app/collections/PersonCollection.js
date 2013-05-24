@@ -46,9 +46,13 @@ function($, _, Backbone,
 					if ((this.selectedModel.get(prop) === value && model.get( prop ) !== value) ||
 						(this.selectedModel.get(prop) !== value && model.get( prop ) === value )) {
 						model.set({visible: false},{silent: true});
-					} else {
-						model.set({visible: true},{silent: true});
-					}
+						model.trigger('change:visibility');
+					} 
+					
+					// do we need this as we are already checking for truth above?
+					//else {
+					//	model.set({visible: true},{silent: true});
+					//}
 					/*
 					if selected has prop and so does model, then show model OR
 					if selected does not have prop and model does, then hide model
@@ -66,8 +70,8 @@ function($, _, Backbone,
 			// increment the count
 			this.incrementCount();
 			
-			// reset the collection with updated collection
-			this.reset( updated );
+			// trigger game update
+			this.trigger('game:update');
 		},
 		
 		postReset: function() {

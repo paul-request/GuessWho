@@ -20,7 +20,7 @@ define([
 			facialHair: '',
 			selected: false,
 			visible: true
-		}		
+		}
 	});
 
 	return PersonModel;

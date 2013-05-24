@@ -18,8 +18,7 @@ function(
 	var Router = Backbone.Router.extend({
 				
 		routes : {
-			"guess-who": "game",
-			"new": "game"
+			"guess-who": "game"
 		},
 						
 		game : function() {
@@ -51,7 +50,8 @@ function(
 				});
 			}
 			
-			this.filtersView.on('guess:update', this.filtersView.preRender, this.filtersView);
+			this.filtersView.on('game:guess', this.filtersView.preRender, this.filtersView);
+			this.personCollection.on('game:update', this.filtersView.preRender, this.filtersView);
 			
 			this.personCollection.once('reset', this.personCollection.postReset, this.personCollection);
 			this.personCollection.on('reset', this.gameView.preRender, this.gameView);
@@ -62,7 +62,7 @@ function(
 		
 		guess: function( outcome ) {
 			this.personCollection.incrementCount();
-			this.filtersView.trigger('guess:update');
+			this.filtersView.trigger('game:guess');
 			
 			var 
 			selectedName = this.personCollection.getSelectedModel().get('name'),

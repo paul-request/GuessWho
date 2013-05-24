@@ -9,14 +9,20 @@ define([
 	TemplateUtils) {
 
 	var PersonView = Backbone.View.extend({
+				
+		className: '.cardWrap',
 		
 		events: { 
-			"click .card.visible" : "guess"//,
-			//"mouseover .card.visible" : "showDetails",
-			//"mouseout .card.visible" : "hideDetails"
+			"click .card.visible:not(.toggle)" : "guess",
+			"click .card.visible.toggle" : "turn"
 		},
 
 		template: PersonTemplate,
+		
+		initialize: function() {
+			this.toggled = false;
+			this.model.on('change:visibility', this.update, this);
+		},
 		
 		render: function() {
 			var tmpl = _.template( this.template );
@@ -27,23 +33,32 @@ define([
 		
 		guess: function( evt ) {
 			var $card = $(evt.currentTarget);
-			$card.toggleClass('toggle');
+			$card.addClass('toggle');
 			
-			if ( this.model.get('selected') === true ) {
-				Vents.trigger('guess:correct');
-			} else {
-				Vents.trigger('guess:incorrect');
+			// Only trigger guess if card face is showing
+			if ( !this.toggled ) {
+				if ( this.model.get('selected') === true ) {
+					Vents.trigger('guess:correct');
+				} else {
+					Vents.trigger('guess:incorrect');
+				}
 			}
+			
+			this.toggled = true;
+			
+			return false;
+			
 		},
 		
-		showDetails: function( evt ) {
-			var $card = $(evt.currentTarget);
-			$card.addClass('hover');
+		turn: function( evt ) {
+			this.toggled = false;
+			$(evt.currentTarget).removeClass('toggle');
+			return false;
 		},
 		
-		hideDetails: function( evt ) {
-			var $card = $(evt.currentTarget);
-			$card.removeClass('hover');
+		update: function( evt ) {
+			this.$el.find('.card').addClass('hidden');
+			return false;
 		}
 		
 	});
