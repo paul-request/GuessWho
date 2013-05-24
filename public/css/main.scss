@@ -222,20 +222,6 @@ body {
 					display: inline-block;
 					padding: 0 6px;
 					margin: 0 5px 5px 0;
-					@include corners(3px);
-					background: #eee;
-					cursor: pointer;
-					font-size: 0.625em;
-					text-transform: uppercase;
-					border: 1px solid #ddd;
-					text-decoration: none;
-					color: #333;
-					@include trans(all .2s ease-in);
-					
-					&:hover {
-						text-decoration: none;
-						border-color: #777;
-					}
 					
 					i {
 						display: inline;
@@ -293,6 +279,7 @@ body {
 		}
 		
 	}
+	
 	/* JQUERY UI DIALOG */
 
 	.ui-widget-overlay {
@@ -309,10 +296,11 @@ body {
 		position: absolute;
 		top: 0;
 		left: 0;
-		padding: .2em;
+		padding: 10px;
 		outline: 0;
-		background: #fff;
+		background: $yellow;
 		z-index: 99;
+		@include corners(10px);
 		
 		.ui-dialog-titlebar, 
 		.ui-dialog-title,
@@ -324,9 +312,46 @@ body {
 		.ui-dialog-content {
 			position: relative;
 			border: 0;
-			padding: .5em 1em;
+			padding: 20px;
 			background: none;
 			overflow: auto;
+			background: #fff;
+			@include corners(10px);
+			
+			h3 {
+				margin: 0;
+				padding: 0 0 10px;
+			}
+			
+			.dialogBtn {
+				width: 120px;
+				font-size: 0.875em;
+				display: block;
+				margin: 0 auto;
+				padding: 6px 0;
+				text-align: center;
+			}
+		}
+	}
+	
+	.btn {
+		@include corners(3px);
+		background: #eee;
+		cursor: pointer;
+		font-size: 0.625em;
+		text-transform: uppercase;
+		border: 1px solid #ddd;
+		text-decoration: none;
+		color: #333;
+		@include trans(all .2s ease-in);
+		outliine: none;
+					
+		&:hover {
+			text-decoration: none;
+			border-color: #777;
+		}
+		&:focus {
+			outline: none;
 		}
 	}
 }

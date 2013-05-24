@@ -40,8 +40,6 @@ function($, _, Backbone,
 			this.personViews = [];
 			this.$el.unbind();
 			this.$el.empty();
-			
-			// maybe need to call close on other views to destory them, or does resetting the html do all?
 		}
 		
 	});

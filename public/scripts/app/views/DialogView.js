@@ -16,7 +16,15 @@ function($, _, Backbone,
 		draggable: false,
 		closeOnEscape: false,
 		width: 400,
-		height: 300
+		height: 200,
+		hide: {
+			effect: "fadeOut", 
+			duration: 500
+		},
+		show: {
+			effect: "fadeIn", 
+			duration: 500
+		}
 	};
 	
 	var DialogView = Backbone.View.extend({

@@ -142,25 +142,7 @@ body {
         body #container #sideBar .filterGroup .filter {
           display: inline-block;
           padding: 0 6px;
-          margin: 0 5px 5px 0;
-          -moz-border-radius: 3px;
-          -webkit-border-radius: 3px;
-          border-radius: 3px;
-          background: #eee;
-          cursor: pointer;
-          font-size: 0.625em;
-          text-transform: uppercase;
-          border: 1px solid #dddddd;
-          text-decoration: none;
-          color: #333;
-          -o-transition: all 0.2s ease-in;
-          -ms-transition: all 0.2s ease-in;
-          -moz-transition: all 0.2s ease-in;
-          -webkit-transition: all 0.2s ease-in;
-          transition: all 0.2s ease-in; }
-          body #container #sideBar .filterGroup .filter:hover {
-            text-decoration: none;
-            border-color: #777; }
+          margin: 0 5px 5px 0; }
           body #container #sideBar .filterGroup .filter i {
             display: inline;
             width: auto;
@@ -206,10 +188,13 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    padding: .2em;
+    padding: 10px;
     outline: 0;
-    background: #fff;
-    z-index: 99; }
+    background: #eed429;
+    z-index: 99;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
     body .ui-dialog .ui-dialog-titlebar,
     body .ui-dialog .ui-dialog-title,
     body .ui-dialog .ui-dialog-titlebar-close,
@@ -218,6 +203,42 @@ body {
     body .ui-dialog .ui-dialog-content {
       position: relative;
       border: 0;
-      padding: 0.5em 1em;
+      padding: 20px;
       background: none;
-      overflow: auto; }
+      overflow: auto;
+      background: #fff;
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px; }
+      body .ui-dialog .ui-dialog-content h3 {
+        margin: 0;
+        padding: 0 0 10px; }
+      body .ui-dialog .ui-dialog-content .dialogBtn {
+        width: 120px;
+        font-size: 0.875em;
+        display: block;
+        margin: 0 auto;
+        padding: 6px 0;
+        text-align: center; }
+  body .btn {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #eee;
+    cursor: pointer;
+    font-size: 0.625em;
+    text-transform: uppercase;
+    border: 1px solid #dddddd;
+    text-decoration: none;
+    color: #333;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    outliine: none; }
+    body .btn:hover {
+      text-decoration: none;
+      border-color: #777; }
+    body .btn:focus {
+      outline: none; }

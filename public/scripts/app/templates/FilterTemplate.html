@@ -7,6 +7,6 @@
 <% if ( typeof selected !== 'undefined' && typeof selected[value] !== 'undefined' ) { %>
 <% filterClass = ( selected[value] === true ) ? 'isTrue' : 'isFalse'; %>
 <% } %>
-<a href="#" class="filter <%= filterClass %>" data-key="<%= key %>" data-value="<%= value %>"><i></i><%= _.out(value) %></a>
+<a href="#" class="btn filter <%= filterClass %>" data-key="<%= key %>" data-value="<%= value %>"><i></i><%= _.out(value) %></a>
 <% } %>
 <% }) %>
