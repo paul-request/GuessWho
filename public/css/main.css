@@ -161,7 +161,7 @@ body {
               content: "\f003"; }
         body #container #sideBar .filterGroup .isTrue {
           border-color: #bfe79e;
-          color: #71ca28;
+          color: #53961d;
           background: #e3f5d5; }
           body #container #sideBar .filterGroup .isTrue:hover {
             border-color: #71ca28; }
