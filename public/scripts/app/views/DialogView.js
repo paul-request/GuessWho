@@ -41,7 +41,7 @@ function($, _, Backbone,
 		
 		close: function() {
 			this.$el.dialog('close');
-			Vents.trigger('game:reset');
+			Vents.trigger('reset:game');
 			
 			return false;
 		}

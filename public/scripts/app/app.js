@@ -21,7 +21,11 @@ function(
 		router.guess( false );
 	});
 	
-	Vents.bind("game:reset", function() {
+	Vents.bind("update:filters", function() {
+		router.updateFitlers();
+	});
+	
+	Vents.bind("reset:game", function() {
 		router.navigate('#/guess-who', true);
 	});
 	

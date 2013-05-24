@@ -50,19 +50,16 @@ function(
 				});
 			}
 			
-			this.filtersView.on('game:guess', this.filtersView.preRender, this.filtersView);
-			this.personCollection.on('game:update', this.filtersView.preRender, this.filtersView);
-			
 			this.personCollection.once('reset', this.personCollection.postReset, this.personCollection);
 			this.personCollection.on('reset', this.gameView.preRender, this.gameView);
 			this.personCollection.on('reset', this.filtersView.preRender, this.filtersView);
-			
+
 			this.personCollection.fetch();
 		},
 		
 		guess: function( outcome ) {
 			this.personCollection.incrementCount();
-			this.filtersView.trigger('game:guess');
+			Vents.trigger('update:filters');
 			
 			var 
 			selectedName = this.personCollection.getSelectedModel().get('name'),
@@ -77,6 +74,10 @@ function(
 					message: dialogMsg
 				});
 			}
+		},
+		
+		updateFitlers: function() {
+			this.filtersView.preRender();
 		}
 	});
 	
