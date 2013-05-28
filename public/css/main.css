@@ -10,15 +10,27 @@ body {
   font-size: 1em;
   line-height: 1.25em;
   color: #333;
-  /* JQUERY UI DIALOG */ }
+  /* JQUERY UI DIALOG */
+  /* FOOTER */ }
+  body a {
+    color: #859ce6;
+    text-decoration: none;
+    -o-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear; }
+    body a:hover {
+      color: #2445ae; }
   body h1 {
     font-size: 1.5em;
     margin: 0 0 0.75em;
     padding: 0 0 0.75em;
     border-bottom: 1px solid #777777; }
-  body #container {
+  body .wrapper {
     width: 800px;
-    margin: 20px auto;
+    margin: 20px auto; }
+  body #container {
     overflow: hidden;
     /* MAIN GAME BOARD */
     /* SIDEBAR FILTERS */ }
@@ -231,14 +243,12 @@ body {
     border: 1px solid #dddddd;
     text-decoration: none;
     color: #333;
-    -o-transition: all 0.2s ease-in;
-    -ms-transition: all 0.2s ease-in;
-    -moz-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
     outliine: none; }
     body .btn:hover {
       text-decoration: none;
-      border-color: #777; }
+      border-color: #777;
+      color: #333; }
     body .btn:focus {
       outline: none; }
+  body footer {
+    font-size: 0.875em; }

@@ -50,16 +50,29 @@ body {
 	line-height: 1.25em;
 	color: #333;
 	
+	a {
+		color: #859ce6;
+		text-decoration: none;
+		@include trans(all 0.4s linear);	
+		
+		&:hover {
+			color: #2445ae;
+		}
+	}
+	
 	h1 {
 		font-size: 1.5em;
 		margin: 0 0 0.75em;
 		padding: 0 0 0.75em;
 		border-bottom: 1px solid #777;
 	}
-
-	#container { 
+	
+	.wrapper {
 		width: 800px;
 		margin: 20px auto;
+	}
+
+	#container { 
 		overflow: hidden;
 		
 		/* MAIN GAME BOARD */
@@ -343,15 +356,20 @@ body {
 		border: 1px solid #ddd;
 		text-decoration: none;
 		color: #333;
-		@include trans(all .2s ease-in);
 		outliine: none;
 					
 		&:hover {
 			text-decoration: none;
 			border-color: #777;
+			color: #333;
 		}
 		&:focus {
 			outline: none;
 		}
+	}
+	
+	/* FOOTER */
+	footer {
+		font-size: 0.875em;
 	}
 }
