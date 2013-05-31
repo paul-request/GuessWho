@@ -54,7 +54,7 @@ function(
 			this.personCollection.on('reset', this.gameView.preRender, this.gameView);
 			this.personCollection.on('reset', this.filtersView.preRender, this.filtersView);
 
-			this.personCollection.fetch();
+			this.personCollection.fetch({cache: false});
 		},
 		
 		guess: function( outcome ) {

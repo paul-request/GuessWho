@@ -1,12 +1,12 @@
 # READ ME
 --------------
 
-A Guess Who style game messing around with css3 and Backbone.js
+A Guess Who style game messing around with CCS3 and Backbone.js
 
 ## BUGS
 --------------
 
-* Seems to be a bug in Firefox + IE when reloading app, the response seems to be cached so the same person gets selected even after a refresh
+* ~~Seems to be a bug in Firefox + IE when reloading app, the response seems to be cached so the same person gets selected even after a refresh~~
 
 
 ## TODO
