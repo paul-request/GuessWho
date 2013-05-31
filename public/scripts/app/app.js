@@ -26,7 +26,7 @@ function(
 	});
 	
 	Vents.bind("reset:game", function() {
-		router.navigate('#/guess-who', true);
+		Backbone.history.loadUrl( Backbone.history.fragment );
 	});
 	
 	Backbone.history.start();
