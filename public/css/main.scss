@@ -1,10 +1,21 @@
 $red: #f82a15;
 $yellow: #eed429;
 
+$phone: 320px;
+$phone-wide: 500px;
+$tablet: 600px;
+$screen: 992px;
+
+@mixin until($device-width) {
+	@media screen and (max-width: $device-width - 1) {
+		@content 
+	}
+}
+
 @mixin box_shadow($shadow: 0 0 5px rgba(0,0,0,0.2)) {
-  -moz-box-shadow: $shadow;
-  -webkit-box-shadow: $shadow;
-  box-shadow: $shadow;
+	-moz-box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	box-shadow: $shadow;
 }
 @mixin vertical_gradient($startColour: #ffffff, $endColour: #ffffff) {
 	background-color: $endColour;
@@ -70,6 +81,12 @@ body {
 	.wrapper {
 		width: 800px;
 		margin: 20px auto;
+		
+		@include until($screen) {
+			width: 96%;
+			padding: 2%;
+			margin: 0;
+		}
 	}
 
 	#container { 
@@ -209,7 +226,19 @@ body {
 				-moz-transform-origin: 50% 100%;
 				-moz-transform: perspective( 500px ) rotateX( 40deg ) scale(0.9,0.9);				
 			}
+			
+			@include until($screen) {
+				width: 70%;
+				padding: 0;
+				margin: 0;
+			}
+			@include until($phone-wide) {
+				width: 100%;
+				float: none;
+				overflow: hidden;
+			}
 		}
+
 		
 		/* SIDEBAR FILTERS */
 		
@@ -289,8 +318,18 @@ body {
 					}
 				}
 			}
-		}
-		
+			
+			@include until($screen) {
+				width: 25%;
+				padding: 0;
+				margin: 0;
+			}
+			@include until($phone-wide) {
+				width: 100%;
+				float: none;
+				margin-top: 2em;
+			}
+		}	
 	}
 	
 	/* JQUERY UI DIALOG */
